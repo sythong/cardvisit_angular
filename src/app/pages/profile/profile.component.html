@@ -1,0 +1,72 @@
+<div class="wrapper">
+    <div class="row" style="padding:0px">
+        <div class="col-lg-4 col-md-0" style="background-image: url('./assets/img/backgroundbanner.png');">
+        </div>
+        <div class="col-lg-4 col-md-12" style="background-image: url('./assets/img/backgroundbanner.png'); padding:0px">
+            <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/backgroundbanner.png');">
+                <img [src]="coverPhoto" style="height: 40vh;" alt="Circle Image" class="img-no-padding img-responsive">
+                <img src="./assets/img/camera.jpg" class="img-circle img-no-padding img-responsive img-change-background" (click)="selectBackground()">
+                <input #selectbg type="file" class="filepicker" (change)="handleFileSelect($event)">
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-0" style="background-image: url('./assets/img/backgroundbanner.png');">
+        </div>
+    </div>
+    <div [style.background-image]="userInfo.backgroundId > 0 ? 'url(' + background + ')' : ''" style="background-color:#18191a; padding-left:15px" class="section profile-content row">
+        <div class="container">
+            <div class="owner">
+                <div class="avatar">
+                    <img src="./assets/img/camera.jpg" class="img-circle img-no-padding img-responsive img-change-avatar" (click)="selectAvatar()">
+                    <img [src]="avatar" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                    <ngx-qrcode style="cursor: pointer;" (click)="gotoview()" [value]="qrCodeValue"></ngx-qrcode>
+                </div>
+                <div class="name">
+                    <input type="text" (blur)="updateUserInfo()" (keyup.enter)="updateUserInfo()" class="form-control title input-name" placeholder="place your name" [(ngModel)]="userInfo.fullName" name="fullName" autocomplete="off" >
+                    <!-- <h4 class="title" style="color:white">{{userInfo.fullName}}<br /></h4> -->
+                    <input type="text" (blur)="updateUserInfo()" (keyup.enter)="updateUserInfo()" class="form-control description input-job" placeholder="place your detail" [(ngModel)]="userInfo.job" name="job" autocomplete="off" >
+                    <!-- <h6 class="description">{{userInfo.job}}</h6> -->
+                </div>
+            </div>
+            <div class="row">
+                <br />
+                <div class="col-md-3 col-6 ml-auto mr-auto text-center " style="padding: 0px; padding-top:10px; padding-left:5px">
+                    <button style="width: 100%;" class="btn btn-outline-default btn-round button-dark" (click)="selectIcon()"><i class="fa fa-cog"></i> Thêm</button>
+                   
+                </div>
+                <div class="col-md-3 col-6 ml-auto mr-auto text-center " style="padding: 0px; padding-top:10px; padding-right:5px">
+                    <button style="width: 100%;" class="btn btn-outline-default btn-round button-dark" (click)="selectCustom()"><i class="fa fa-cog"></i> Thêm tùy chỉnh</button>
+                </div>
+                <br />
+                <div class="col-md-3 col-6 ml-auto mr-auto text-center " style="padding: 0px; padding-top:10px; padding-left:5px">
+                    <button style="width: 100%;" class="btn btn-outline-default btn-round button-dark"  (click)="selectAppBackground()"><i class="fa fa-cog"></i> Thay đổi màu nền</button>
+                </div>
+                <div class="col-md-3 col-6 ml-auto mr-auto text-center " style="padding: 0px; padding-top:10px; padding-right:5px">
+                    <button style="width: 100%;" class="btn btn-outline-default btn-round button-dark" (click)="logout()"><i class="fa fa-cog"></i> Đăng xuất</button>
+                </div>
+            </div>
+            <br/>
+            <div class="row following" id="follows">
+                <div class="col-md-6 ml-auto mr-auto">
+                    <ul class="list-unstyled follows">
+                        <li>
+                            <div cdkDropListGroup>
+                                  <div
+                                    cdkDropList
+                                    [cdkDropListData]="data"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div *ngFor="let item of data" class="row" cdkDrag>
+                                        <img [src]="item.banner" class="background img-responsive">
+                                        <span class="sub-text" [style.color]="item.subColor">{{item.subText}}</span>
+                                        <span (click)="edit(item)"  target="_blank" class="main-text" [style.color]="item.mainColor">{{item.mainText}}</span>
+                                        <img *ngIf="item.type == 2" [src]="_DomSanitizationService.bypassSecurityTrustUrl('data:image/png;base64, ' + item.icon)" class="img-circle img-no-padding img-responsive img-change-icon">
+                                        <!-- <a [href]="item.url"  target="_blank" class="main-text" [style.color]="item.mainColor">{{item.mainText}}</a> -->
+                                    </div>
+                                  </div>
+                              </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

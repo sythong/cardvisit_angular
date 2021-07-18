@@ -1,0 +1,58 @@
+.select-icon {
+    width:60px; 
+    height:60px; 
+    padding:10px;
+    cursor: pointer;
+}
+
+.selected-icon {
+    width:70px; 
+    height:70px; 
+    padding:10px;
+    cursor: pointer;
+}
+
+.main-text{
+    position: absolute;
+    font-size: 100%;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    width: 48%;
+    margin-left: 28%;
+    border: 0px;
+    margin-top: 6.5%;
+    background-color: transparent;
+    padding: 0px;
+    height: 10%;
+}
+
+.sub-text {
+    position: absolute;
+    font-size: 80%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    width: 38%;
+    margin-left: 29%;
+    border: 0px;
+    margin-top: 14%;
+    background-color: transparent;
+    padding: 0px;
+    height: 8%;
+}
+
+.background {
+    position: absolute; 
+    width:97%; 
+    max-width:1000px;
+    padding:5px
+}
+
+.button-dark {
+    color:wheat;
+    border-color: wheat;
+}

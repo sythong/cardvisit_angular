@@ -1,0 +1,79 @@
+.select-icon {
+    width:50px; 
+    height:50px; 
+    padding:10px;
+    cursor: pointer;
+}
+
+.selected-icon {
+    width:60px; 
+    height:60px; 
+    padding:10px;
+    cursor: pointer;
+}
+
+.main-text{
+    font-weight: bold;
+    padding-top: 7%;
+    padding-left: 29%;
+    position: absolute; 
+    color: #18191a; 
+    font-size: 160%; 
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    width: 95%;
+    padding-right: 13%;
+    padding-bottom: 7%;
+    cursor: pointer;
+  }
+  
+  .sub-text {
+    position: absolute;
+    padding-left: 30%;
+    padding-top: 14.5%;
+    color: white;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding-right: 30%;
+    font-size: 120%;
+  }
+
+.background {
+    position: absolute; 
+    width:97%; 
+    max-width:1000px;
+    padding:5px
+}
+
+.button-dark {
+    color:wheat;
+    border-color: wheat;
+}
+
+.img-change-icon {
+    cursor: pointer;
+    width: 20%;
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+.filepicker{
+    -webkit-appearance: none;
+    position:absolute;
+    top:1px;
+    right:1px;
+    width: 40px;
+    height: 40px;
+    text-indent: 100em;
+    background-size: cover;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+}
