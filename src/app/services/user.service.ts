@@ -17,8 +17,8 @@ export class UserService {
     return this.http.post(`user/ChangeCoverPhoto`, JSON.stringify(data)).toPromise();
   }
 
-  Register(email, password): Promise<any> {
-    return this.http.get(`user/Register/${email}/${password}`).toPromise();
+  Register(email, link, password): Promise<any> {
+    return this.http.get(`user/Register/${email}/${link}/${password}`).toPromise();
   }
 
   UpdateUserInfo(data): Promise<any> {

@@ -17,15 +17,33 @@
 
                                   <input type="text" [(ngModel)]="email" name="email" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
                               </div>
-
-                              <label>Password</label>
+                              <label>Link</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-email-85"></i>
+                                  </span>
+                                </div>
+                                  <input type="text" [(ngModel)]="link" name="link" class="form-control" placeholder="link" (focus)="focus=true" (blur)="focus=false" (keyup)="checkLink($event)" >
+                              </div>
+                              <label>Mật khẩu</label>
                               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">
                                       <i class="nc-icon nc-key-25"></i>
                                   </span>
                                 </div>
-                                  <input type="text" [(ngModel)]="password" name="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                                  <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                              </div>
+
+                              <label>Xác nhận mật khẩu</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-key-25"></i>
+                                  </span>
+                                </div>
+                                  <input type="password" [(ngModel)]="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
                               </div>
                               <button [disabled]="!enableBtn" class="btn btn-danger btn-block btn-round" (click)="register()">Đăng ký</button>
                               <button (click)="gotoLogin()" class="btn btn-primary btn-block btn-round">Quay lại</button>

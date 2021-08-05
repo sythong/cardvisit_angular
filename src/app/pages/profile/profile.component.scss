@@ -16,6 +16,13 @@
     cursor: pointer;
 }
 
+.bg-img {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .sub-text {
     position: absolute;
     padding-left: 30%;

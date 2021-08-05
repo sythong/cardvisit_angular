@@ -10,7 +10,7 @@
         <div class="col-lg-4 col-md-0" style="background-image: url('./assets/img/backgroundbanner.png');">
         </div>
     </div>
-    <div [style.background-image]="userInfo.backgroundId > 0 ? 'url(' + background + ')' : ''" style="background-color:#18191a; padding-left:15px" class="section profile-content row">
+    <div [style.background]="userInfo.backgroundId > 0 ? 'url(' + background + ') no-repeat center center fixed' : ''" style="background-color:#18191a; padding-left:15px; min-height: 600px;" class="section profile-content row">
         <div class="container">
             <div class="owner">
                 <div class="avatar">

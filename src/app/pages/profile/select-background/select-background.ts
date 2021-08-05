@@ -19,8 +19,7 @@ import { ToastrService } from 'ngx-toastr';
     <div class="modal-body" style="background-color: lightgray; padding:10px; padding-right:30px">
         <div class="row">
             <div *ngFor="let icon of icons" style="width:60px; height:60px" class="col-2">
-                <img *ngIf="icon.id > 0" [ngClass]="icon.id == id ? 'selected-icon' : 'select-icon'" class=" img-responsive " (click)="select(icon.id)" [src]="icon.src" >
-                <img *ngIf="icon.id == 0" style="padding:0px" [ngClass]="icon.id == id ? 'selected-icon' : 'select-icon'" class="img-circle img-no-padding img-responsive" (click)="select(icon.id)" [src]="icon.src" >
+                <img [ngClass]="icon.id == id ? 'selected-icon' : 'select-icon'" class=" img-responsive " (click)="select(icon.id)" [src]="icon.src" >
             </div>
         </div>
     </div>
@@ -36,7 +35,7 @@ import { ToastrService } from 'ngx-toastr';
                 <div class="col-lg-4 col-md-0" style="background-image: url('./assets/img/backgroundbanner.png');">
                 </div>
             </div>
-            <div [style.background-image]="'url(' + selectedItem.banner + ')'" style="background-color:#18191a; padding-left:15px; padding-bottom: 120px;" class="section profile-content row">
+            <div [style.background]="'url(' + selectedItem.banner + ') no-repeat center center fixed'" style="background-color:#18191a; padding-left:15px; padding-bottom: 120px;" class="bg-img section profile-content row">
             <div class="container">
                     <div class="owner">
                         <div class="avatar">
@@ -73,7 +72,7 @@ import { ToastrService } from 'ngx-toastr';
     </div>
     <div class="modal-footer" style="background-color: white">
         <div class="left-side">
-            <button *ngIf="!isEdit" type="button" class="btn btn-primary btn-link" (click)="add()">Sửa</button>
+            <button *ngIf="!isEdit" [disabled]="id == 0" type="button" class="btn btn-primary btn-link" (click)="add()">Sửa</button>
         </div>
         <div class="divider"></div>
         <div class="right-side">
@@ -103,7 +102,6 @@ export class SelectBackgroundContent implements OnInit {
     ];
     
     icons = [
-        {id: 0,  mainColor: "white", subColor: "white", src: './assets/text_color/black.png', banner: ''},
         {id: 1,  mainColor: "white", subColor: "white", src: './assets/app_background/B1.png', banner: './assets/app_background/B1.1.png'},
         {id: 2,  mainColor: "white", subColor: "white", src: './assets/app_background/B2.png', banner: './assets/app_background/B2.1.png'},
         {id: 3,  mainColor: "white", subColor: "white", src: './assets/app_background/B3.png', banner: './assets/app_background/B3.1.png'},

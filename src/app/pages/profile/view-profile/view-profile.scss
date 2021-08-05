@@ -65,6 +65,13 @@
   margin-left: 34vh;
 }
 
+.bg-img {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .background {
     width:100%; 
     max-width:1000px;

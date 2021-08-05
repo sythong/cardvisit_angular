@@ -145,6 +145,9 @@ export class ViewProfileComponent implements OnInit {
         });
         this.userInfo = {};
         this.data = [];
+
+        this.avatar = _DomSanitizationService.bypassSecurityTrustUrl('./assets/img/default-avatar.jpg');
+        this.coverPhoto = _DomSanitizationService.bypassSecurityTrustUrl('./assets/img/no-image-available.jpg');
     }
 
     ngOnInit() {

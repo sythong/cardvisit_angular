@@ -148,11 +148,11 @@ export class ProfileComponent implements OnInit {
         this.userInfo = JSON.parse(localStorage.getItem("user"));
         this.tokenInfo = JSON.parse(localStorage.getItem("token"));
         this.avatar = _DomSanitizationService.bypassSecurityTrustUrl(this.userInfo.avatar != '' ? 'data:image/png;base64, ' + this.userInfo.avatar : './assets/img/default-avatar.jpg');
-        this.coverPhoto = _DomSanitizationService.bypassSecurityTrustUrl(this.userInfo.coverPhoto != '' ?'data:image/png;base64, ' + this.userInfo.coverPhoto : './assets/img/daniel-olahh.jpg');
+        this.coverPhoto = _DomSanitizationService.bypassSecurityTrustUrl(this.userInfo.coverPhoto != '' ?'data:image/png;base64, ' + this.userInfo.coverPhoto : './assets/img/no-image-available.jpg');
         if(this.userInfo.backgroundId > 0) {
             this.background = this.appBackgrounds.find(x => x.id == this.userInfo.backgroundId)?.banner ?? '';
         }
-        this.qrCodeValue = environment.url + "/#/view-profile/" + this.userInfo.id;
+        this.qrCodeValue = environment.url + "/#/view-profile/" + this.userInfo.link;
     }
 
     drop(event: CdkDragDrop<any>) {
@@ -289,7 +289,7 @@ export class ProfileComponent implements OnInit {
 
         modalRef.result.then(res => {
             if(res) {
-                this.userService.GetUserProfile(this.userInfo.id).then(res => {
+                this.userService.GetUserProfile(this.userInfo.link).then(res => {
                     if(res.data.status) {
                         this.userInfo = res.data.data.userInfo;
                         this.background = this.appBackgrounds.find(x => x.id == this.userInfo.backgroundId)?.banner ?? '';
@@ -381,7 +381,7 @@ export class ProfileComponent implements OnInit {
     }
 
     gotoview() {
-        this.router.navigate([`/view-profile/${this.userInfo.id}`]);
+        this.router.navigate([`/view-profile/${this.userInfo.link}`]);
     }
 
     logout() {
