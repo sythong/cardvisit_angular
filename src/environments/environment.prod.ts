@@ -6,6 +6,6 @@
 
 export const environment = {
   production: false,
-  apiURL: "http://localhost:21021/api/",
+  apiURL: "http://mltech-soft.com/api/",
   url: "http//localhost:4200/"
 };
