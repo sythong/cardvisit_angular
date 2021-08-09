@@ -13,7 +13,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "deploy:gh": "ng build --prod --base-href='https://sythong.github.io/cardvisit_angular/' && ngh"
   },
   "dependencies": {
     "@angular/animations": "^12.0.3",
